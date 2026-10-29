@@ -1,0 +1,32 @@
+Register readout AFTER a successful UEFI unlock, Windows fully booted.
+Read through a self-signed read-only kernel driver (IOCTL_GU_PROBE_READ32),
+BAR0 physical base 0x51000000, one ioctl per 1 MiB block.
+
+driver ABI : version=1 max_map=0x100000 max_words=64 readonly=1
+
+  PMC_BOOT_0       0x197000a1    [blk 0x0]
+  GFW_PLM          0x00008b8f    [blk 0x100000]
+  GFW_BOOT         0x000003ff    [blk 0x100000]
+  GFW_CPUCTL       0x00000020    [blk 0x100000]
+  WPR2_LO          0x1ffffe00    [blk 0x100000]
+  WPR2_HI          0x00000000    [blk 0x100000]
+  WPR_CFG          0x0004cb8f    [blk 0x100000]
+  WPR              0x0004cb8f    [blk 0x100000]
+  FB_SIZE_MB       0x000017fd    [blk 0x100000]
+  MMU_PLM          0x0045cb8f    [blk 0x100000]
+  MMU_LO           0x1ffffff0    [blk 0x100000]
+  MMU_HI           0x00000000    [blk 0x100000]
+  VGA_BASE         0x00000001    [blk 0x600000]
+  FEAT_PLM         0xffffffff    [blk 0x800000]
+  FEAT_READOUT_0   0x00000233    [blk 0x800000]
+  FEAT_READOUT_1   0x00000000    [blk 0x800000]
+  SS0              0x88888888    [blk 0x800000]
+  SS1              0x00000008    [blk 0x800000]
+  BOOTER_FUSE      0x00000001    [blk 0x800000]
+  FWSEC_FUSE       0x00000001    [blk 0x800000]
+  SEC2_CPUCTL      0x00000020    [blk 0x800000]
+  FBPA             0xffffff0f    [blk 0x900000]
+
+Verdict: FEAT_PLM open, SS0/SS1 hold the unlock values, FEAT_READOUT_1 is 0
+(all nine 3-bit fields report full speed). Verified again after running the
+cuBLAS benchmark, so the NVIDIA driver did not rewrite the selectors.

@@ -1,0 +1,6 @@
+# NVIDIA firmware assets are never distributed
+*.bin
+*.rom
+*.efi
+*.sys
+build/

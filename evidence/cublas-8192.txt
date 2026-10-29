@@ -1,0 +1,25 @@
+cuBLAS GemmEx 8192x8192, FP16 in / FP32 accumulate, 20 iterations median
+GPU : NVIDIA GeForce RTX 4050 Laptop GPU (AD107M, 20 SM)
+State: AFTER successful UEFI unlock, Windows fully booted
+
+FEAT_PLM       = 0xffffffff
+SS0            = 0x88888888
+SS1            = 0x00000008
+FEAT_READOUT_1 = 0x00000000
+
+FP16 -> FP32 accum : 30.44 TFLOPS   (median 36.12 ms)
+FP32 (SGEMM)       :  6.45 TFLOPS   (median 170.57 ms)
+ratio              : 4.72
+
+Load sampling (clock MHz / power W / util %):
+  2550, 40.36, 99
+  2550, 67.17, 95
+  2535, 82.03, 100
+  2535, 91.40, 99
+  2535, 92.85, 99
+  2535, 93.61, 100
+
+Power limits (nvidia-smi -q -d POWER):
+  Current Power Limit : 100.00 W
+  Default Power Limit :  70.00 W
+  Max Power Limit     : 105.00 W

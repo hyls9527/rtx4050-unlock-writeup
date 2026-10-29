@@ -1,0 +1,24 @@
+Register snapshot comparison (BAR0, decimal offsets)
+
+name              offset      hybrid cold   after unlock   note
+PMC_BOOT_0        0x00000000  0x197000a1    0x197000a1     same die
+GFW_PLM           0x00118128  0x00008b8f    0x00008b8f
+GFW_BOOT          0x00118234  0x000003ff    0x000003ff
+GFW_CPUCTL        0x00110100  0x00000010    0x00000020     firmware POSTed the GPU
+WPR2_LO           0x001fa824  0x1ffffe00    0x1ffffe00
+WPR2_HI           0x001fa828  0x00000000    0x00000000     still 0 => not yet initialised by a driver
+WPR_CFG           0x001fa7cc  0x0004cb8f    0x0004cb8f
+WPR               0x001fa7c4  0x0004cb8f    0x0004cb8f
+FB_SIZE_MB        0x001183a4  0x000017fd    0x000017fd     6141 MiB
+MMU_PLM           0x001fa7c8  0x0045cb8f    0x0045cb8f
+MMU_LO            0x001fa82c  0x00100000    0x1ffffff0     reconfigured
+MMU_HI            0x001fa830  0x016fcff0    0x00000000     reconfigured
+VGA_BASE          0x00625f04  0x00000001    0x00000001
+FEAT_PLM          0x00823804  0xffffff8f    0xffffffff     *** gate open ***
+FEAT_READOUT_0    0x00823814  0x00000233    0x00000233
+FEAT_READOUT_1    0x00823818  0x00410080    0x00000000     *** full speed ***
+SS0               0x0082381c  0x61267164    0x88888888     *** unlocked ***
+SS1               0x00823820  0x00000001    0x00000008     *** unlocked ***
+BOOTER_UCODE_FUSE 0x00824148  0x00000001    0x00000001
+FWSEC_UCODE_FUSE  0x008241e0  0x00000001    0x00000001
+FBPA              0x009a0148  0xffffff0f    0xffffff0f
